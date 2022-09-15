@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSA 강의일정</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/rrule@2.6.9/dist/es5/rrule.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/rrule@5.11.0/main.global.min.js"></script>
+    <!-- 일정 입력 스크립트 -->
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+    
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          height: '100%',
+          locales: 'ko',
+
+          initialView: 'dayGridMonth',
+          //initialDate: '2022-09-01',
+          
+          headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+          },
+          expandRows: true,
+          navLinks: false, // can click day/week names to navigate views
+          editable: false, // 일정 수정
+          selectable: false, // 일정 선택
+          nowIndicator: true, // 현재 시간 표시
+          dayMaxEvents: true, // allow "more" link when too many events
+          views: {
+              timeGrid: {
+                  dayMaxEventRows: 2
+              }
+          },
+          displayEventTime: false, // 시작시간 view
+          businessHours: {
+              daysOfWeek: [ 1,2,3,4,5 ],
+              startTime: '12:00',
+              endTime: '22:00',
+          },
+          events: [
+              // byweekday : 'su', 'mo', 'tu', 'we', 'th', 'fr', 'sa'
+
+              // 시험 일정
+              // 8월 6일 중급 / 고급
+              {
+                title: 'WSET 8월 시험 신청 기간',
+                start: '2022-06-27T00:00:00',
+                end: '2022-07-15T23:59:00',
+                color: 'rgba(127,127,127,0.2)',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: 'WSET 중급 시험',
+                start: '2022-08-06T11:00:00',
+                end: '2022-08-06T12:20:00',
+                color: '#004ba8',
+              },
+              {
+                title: 'WSET 고급 시험',
+                start: '2022-08-06T13:40:00',
+                end: '2022-08-06T17:00:00',
+                color: '#007318',
+              },
+              // 9월 18일 입문 / 중급 / 고급
+              {
+                title: 'WSET 9월 시험 신청 기간',
+                start: '2022-08-08T00:00:00',
+                end: '2022-08-26T23:59:00',
+                color: 'rgba(127,127,127,0.2)',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: 'WSET 입문 시험',
+                start: '2022-09-18T09:40:00',
+                end: '2022-09-18T10:45:00',
+                color: '#a31a2a',
+              },
+              {
+                title: 'WSET 중급 시험',
+                start: '2022-09-18T11:00:00',
+                end: '2022-09-18T12:20:00',
+                color: '#004ba8',
+              },
+              {
+                title: 'WSET 고급 시험',
+                start: '2022-09-18T13:40:00',
+                end: '2022-09-18T17:00:00',
+                color: '#007318',
+              },
+              // 10월 30일 입문 / 중급 / 고급
+              {
+                title: 'WSET 10월 시험 신청 기간',
+                start: '2022-09-19T00:00:00',
+                end: '2022-10-07T23:59:00',
+                color: 'rgba(127,127,127,0.2)',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: 'WSET 입문 시험',
+                start: '2022-10-30T09:40:00',
+                end: '2022-10-30T10:45:00',
+                color: '#a31a2a',
+              },
+              {
+                title: 'WSET 중급 시험',
+                start: '2022-10-30T11:00:00',
+                end: '2022-10-30T12:20:00',
+                color: '#004ba8',
+              },
+              {
+                title: 'WSET 고급 시험',
+                start: '2022-10-30T13:40:00',
+                end: '2022-10-30T17:00:00',
+                color: '#007318',
+              },
+              // 11월 27일 입문 / 중급 / 고급
+              {
+                title: 'WSET 11월 시험 신청 기간',
+                start: '2022-10-17T00:00:00',
+                end: '2022-11-04T23:59:00',
+                color: 'rgba(127,127,127,0.2)',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: 'WSET 입문 시험',
+                start: '2022-11-27T09:40:00',
+                end: '2022-11-27T10:45:00',
+                color: '#a31a2a',
+              },
+              {
+                title: 'WSET 중급 시험',
+                start: '2022-11-27T11:00:00',
+                end: '2022-11-27T12:20:00',
+                color: '#004ba8',
+              },
+              {
+                title: 'WSET 고급 시험',
+                start: '2022-11-27T13:40:00',
+                end: '2022-11-27T17:00:00',
+                color: '#007318',
+              },
+              
+              // 심화과정
+              // IWS Unit 2
+              {
+                title: 'IWS Unit2 1회차(19:00-22:00)',
+                start: '2022-06-13T19:30:00',
+                end: '2022-06-13T22:00:00',
+                color: '#009246',
+                display: 'block'
+              },
+              {
+                title: 'IWS Unit2 2회차(19:00-22:00)',
+                start: '2022-06-20T19:30:00',
+                end: '2022-06-20T22:00:00',
+                color: '#009246',
+                display: 'block'
+              },
+              {
+                title: 'IWS Unit2 3회차(19:00-22:00)',
+                start: '2022-06-27T19:00:00',
+                end: '2022-06-27T22:00:00',
+                color: '#009246',
+                display: 'block'
+              },
+              {
+                title: 'IWS Unit2 4회차(19:00-22:00)',
+                start: '2022-07-04T19:30:00',
+                end: '2022-07-04T22:00:00',
+                color: '#009246',
+                display: 'block'
+              },
+              {
+                title: 'IWS Unit2 5회차(19:00-22:00)',
+                start: '2022-07-11T19:00:00',
+                end: '2022-07-11T22:00:00',
+                color: '#009246',
+                display: 'block'
+              },
+              {
+                title: 'IWS Unit2 인증시험',
+                start: '2022-07-25T20:00:00',
+                end: '2022-07-25T21:30:00',
+                color: '#009246',
+              },
+              
+              // 입문일정 : color - #a31a2a b8505c cd858d e3babf   
+              // 입문 232기 주중
+              {
+                title: '입문 232기 1회차(19:30-22:00)',
+                start: '2022-08-03T19:30:00',
+                end: '2022-08-03T22:00:00',
+                color: '#b8505c',
+                display: 'block'
+              },
+              {
+                title: '입문 232기 2회차(19:30-22:00)',
+                start: '2022-08-10T19:30:00',
+                end: '2022-08-10T22:00:00',
+                color: '#b8505c',
+                display: 'block'
+              },
+              {
+                title: '입문 232기 3회차(19:30-21:00)',
+                start: '2022-08-17T19:00:00',
+                end: '2022-08-17T21:00:00',
+                color: '#b8505c',
+                display: 'block'
+              },             
+              // 입문 233기 주중
+              {
+                title: '입문 233기 1회차(19:30-22:00)',
+                start: '2022-08-16T19:30:00',
+                end: '2022-08-16T22:00:00',
+                color: '#cd858d',
+                display: 'block'
+              },
+              {
+                title: '입문 233기 2회차(19:30-22:00)',
+                start: '2022-08-23T19:30:00',
+                end: '2022-08-23T22:00:00',
+                color: '#cd858d',
+                display: 'block'
+              },
+              {
+                title: '입문 233기 3회차(19:30-22:00)',
+                start: '2022-08-30T19:00:00',
+                end: '2022-08-30T21:30:00',
+                color: '#cd858d',
+                display: 'block'
+              },
+              // 입문 234기 1day course
+              {
+                title: '입문 234기 1day(10:30-17:30)',
+                start: '2022-09-03T10:30:00',
+                end: '2022-09-03T17:30:00',
+                color: '#e3babf',
+                display: 'block'
+            },             
+              // 입문 235기 주중
+              {
+                title: '입문 235기 1회차(19:30-22:00)',
+                start: '2022-09-13T19:30:00',
+                end: '2022-09-13T22:00:00',
+                color: '#a31a2a',
+                display: 'block'
+              },
+              {
+                title: '입문 235기 2회차(19:30-22:00)',
+                start: '2022-09-20T19:30:00',
+                end: '2022-09-20T22:00:00',
+                color: '#a31a2a',
+                display: 'block'
+              },
+              {
+                title: '입문 235기 3회차(19:00-21:00)',
+                start: '2022-09-27T19:00:00',
+                end: '2022-09-27T21:00:00',
+                color: '#a31a2a',
+                display: 'block'
+              }, 
+              // 입문 236기 1day course
+              {
+                title: '입문 236기 1day(10:30-17:30)',
+                start: '2022-09-25T10:30:00',
+                end: '2022-09-25T17:30:00',
+                color: '#b8505c',
+                display: 'block'
+              },             
+              // 입문 237기 주중
+              {
+                title: '입문 237기 1회차(19:30-22:00)',
+                start: '2022-10-04T19:30:00',
+                end: '2022-10-04T22:00:00',
+                color: '#cd858d',
+                display: 'block'
+              },
+              {
+                title: '입문 237기 2회차(19:30-22:00)',
+                start: '2022-10-11T19:30:00',
+                end: '2022-10-11T22:00:00',
+                color: '#cd858d',
+                display: 'block'
+              },
+              {
+                title: '입문 237기 3회차(19:00-21:00)',
+                start: '2022-10-18T19:00:00',
+                end: '2022-10-18T21:00:00',
+                color: '#cd858d',
+                display: 'block'
+              }, 
+              // 입문 238기 1day course
+              {
+                title: '입문 238기 1day(10:30-17:30)',
+                start: '2022-09-25T10:30:00',
+                end: '2022-09-25T17:30:00',
+                color: '#b8505c',
+                display: 'block'
+              },             
+              // 입문 239기 주중
+              {
+                title: '입문 239기 1회차(19:30-22:00)',
+                start: '2022-10-27T19:30:00',
+                end: '2022-10-27T22:00:00',
+                color: '#a31a2a',
+                display: 'block'
+              },
+              {
+                title: '입문 239기 2회차(19:30-22:00)',
+                start: '2022-11-03T19:30:00',
+                end: '2022-11-03T22:00:00',
+                color: '#a31a2a',
+                display: 'block'
+              },
+              {
+                title: '입문 239기 3회차(19:00-21:00)',
+                start: '2022-11-10T19:00:00',
+                end: '2022-11-10T21:00:00',
+                color: '#a31a2a',
+                display: 'block'
+              },     
+
+              // 중급일정 : color - #004ba8 3c75bc 779ed1 b2c8e5
+
+              // 중급 436기 평일저녁
+              {
+                title: '중급 436기 7회차(19:00-22:00)',
+                start: '2022-08-04T19:00:00',
+                end: '2022-08-04T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 436기 8회차(19:00-22:00)',
+                start: '2022-08-11T19:00:00',
+                end: '2022-08-11T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              // 중급 437기 평일저녁
+              {
+                title: '중급 437기 4회차(19:00-22:00)',
+                start: '2022-08-03T19:00:00',
+                end: '2022-08-03T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 437기 5회차(19:00-22:00)',
+                start: '2022-08-10T19:00:00',
+                end: '2022-08-10T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 437기 6회차(19:00-22:00)',
+                start: '2022-08-17T19:00:00',
+                end: '2022-08-17T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 437기 7회차(19:00-22:00)',
+                start: '2022-08-24T19:00:00',
+                end: '2022-08-24T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 437기 8회차(19:00-22:00)',
+                start: '2022-08-31T19:00:00',
+                end: '2022-08-31T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              
+              // 중급 439기 평일저녁
+              {
+                title: '중급 439기 3회차(19:00-22:00)',
+                start: '2022-08-01T19:00:00',
+                end: '2022-08-01T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 439기 4회차(19:00-22:00)',
+                start: '2022-08-08T19:00:00',
+                end: '2022-08-08T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 439기 5회차(19:00-22:00)',
+                start: '2022-08-22T19:00:00',
+                end: '2022-08-22T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 439기 6회차(19:00-22:00)',
+                start: '2022-08-29T19:00:00',
+                end: '2022-08-29T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 439기 7회차(19:00-22:00)',
+                start: '2022-09-05T19:00:00',
+                end: '2022-09-05T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 439기 8회차(19:00-22:00)',
+                start: '2022-09-19T19:00:00',
+                end: '2022-09-19T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              
+              // 중급 440기 평일저녁
+              {
+                title: '중급 440기 1회차(19:00-22:00)',
+                start: '2022-08-02T19:00:00',
+                end: '2022-08-02T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 440기 2회차(19:00-22:00)',
+                start: '2022-08-09T19:00:00',
+                end: '2022-08-09T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 440기 3회차(19:00-22:00)',
+                start: '2022-08-16T19:00:00',
+                end: '2022-08-16T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 440기 4회차(19:00-22:00)',
+                start: '2022-08-23T19:00:00',
+                end: '2022-08-23T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 440기 5회차(19:00-22:00)',
+                start: '2022-08-30T19:00:00',
+                end: '2022-08-30T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 440기 6회차(19:00-22:00)',
+                start: '2022-09-06T19:00:00',
+                end: '2022-09-06T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 440기 7회차(19:00-22:00)',
+                start: '2022-09-13T19:00:00',
+                end: '2022-09-13T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 440기 8회차(19:00-22:00)',
+                start: '2022-09-20T19:00:00',
+                end: '2022-09-20T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+
+              // 중급 441기 WEB
+              {
+                title: '중급 441기 웹 1회차(19:30-22:00) *이론',
+                start: '2022-08-10T19:30:00',
+                end: '2022-08-10T22:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '중급 441기 웹 2회차(19:30-22:00) *이론',
+                start: '2022-08-17T19:30:00',
+                end: '2022-08-17T22:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '중급 441기 웹 3회차(19:30-22:00) *이론',
+                start: '2022-08-24T19:30:00',
+                end: '2022-08-24T22:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '중급 441기 웹 4회차(19:30-22:00) *이론',
+                start: '2022-08-31T19:30:00',
+                end: '2022-08-31T22:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '중급 441기 웹 5회차(19:30-22:00) *이론',
+                start: '2022-09-07T19:30:00',
+                end: '2022-09-07T22:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '중급 441기 웹 6회차(19:30-22:00) *이론',
+                start: '2022-09-14T19:30:00',
+                end: '2022-09-14T22:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '중급 441기 웹 7회차(14:00-17:00) *시음',
+                start: '2022-09-25T14:00:00',
+                end: '2022-09-25T17:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              // 중급 442기 주말집중
+              {
+                title: '중급 442기 1-2회차(10:30-17:00)',
+                start: '2022-08-13T10:30:00',
+                end: '2022-08-13T17:30:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 442기 3-4회차(10:00-17:00)',
+                start: '2022-08-20T10:30:00',
+                end: '2022-08-20T17:30:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 442기 5-6회차(10:00-17:00)',
+                start: '2022-08-27T10:30:00',
+                end: '2022-08-27T17:30:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 442기 7-8회차(10:00-17:00)',
+                start: '2022-09-03T10:30:00',
+                end: '2022-09-03T17:30:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              // 중급 444기 평일저녁
+              {
+                title: '중급 444기 1회차(19:00-22:00)',
+                start: '2022-08-25T19:00:00',
+                end: '2022-08-25T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 444기 2회차(19:00-22:00)',
+                start: '2022-09-01T19:00:00',
+                end: '2022-09-01T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 444기 3회차(19:00-22:00)',
+                start: '2022-09-15T19:00:00',
+                end: '2022-09-15T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 444기 4회차(19:00-22:00)',
+                start: '2022-09-22T19:00:00',
+                end: '2022-09-22T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 444기 5회차(19:00-22:00)',
+                start: '2022-09-29T19:00:00',
+                end: '2022-09-29T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 444기 6회차(19:00-22:00)',
+                start: '2022-10-06T19:00:00',
+                end: '2022-10-06T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 444기 7회차(19:00-22:00)',
+                start: '2022-10-13T19:00:00',
+                end: '2022-10-13T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 444기 8회차(19:00-22:00)',
+                start: '2022-10-20T19:00:00',
+                end: '2022-10-20T22:00:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              // 중급 446기 평일저녁
+              {
+                title: '중급 446기 1회차(19:00-22:00)',
+                start: '2022-09-07T19:00:00',
+                end: '2022-09-07T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 446기 2회차(19:00-22:00)',
+                start: '2022-09-14T19:00:00',
+                end: '2022-09-14T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 446기 3회차(19:00-22:00)',
+                start: '2022-09-21T19:00:00',
+                end: '2022-09-21T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 446기 4회차(19:00-22:00)',
+                start: '2022-09-28T19:00:00',
+                end: '2022-09-28T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 446기 5회차(19:00-22:00)',
+                start: '2022-10-05T19:00:00',
+                end: '2022-10-05T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 446기 6회차(19:00-22:00)',
+                start: '2022-10-12T19:00:00',
+                end: '2022-10-12T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 446기 7회차(19:00-22:00)',
+                start: '2022-10-19T19:00:00',
+                end: '2022-10-19T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 446기 8회차(19:00-22:00)',
+                start: '2022-10-26T19:00:00',
+                end: '2022-10-26T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              // 중급 447기 평일오후
+              {
+                title: '중급 447기 1회차(14:00-17:00)',
+                start: '2022-09-19T14:00:00',
+                end: '2022-09-19T17:00:00',
+                color: '#b2c8e5',
+                display: 'block'
+              },
+              {
+                title: '중급 447기 2회차(14:00-17:00)',
+                start: '2022-09-26T14:00:00',
+                end: '2022-09-26T17:00:00',
+                color: '#b2c8e5',
+                display: 'block'
+              },
+              {
+                title: '중급 447기 3회차(14:00-17:00)',
+                start: '2022-10-10T14:00:00',
+                end: '2022-10-10T17:00:00',
+                color: '#b2c8e5',
+                display: 'block'
+              },
+              {
+                title: '중급 447기 4회차(14:00-17:00)',
+                start: '2022-10-17T14:00:00',
+                end: '2022-10-17T17:00:00',
+                color: '#b2c8e5',
+                display: 'block'
+              },
+              {
+                title: '중급 447기 5회차(14:00-17:00)',
+                start: '2022-10-24T14:00:00',
+                end: '2022-10-24T17:00:00',
+                color: '#b2c8e5',
+                display: 'block'
+              },
+              {
+                title: '중급 447기 6회차(14:00-17:00)',
+                start: '2022-10-31T14:00:00',
+                end: '2022-10-31T17:00:00',
+                color: '#b2c8e5',
+                display: 'block'
+              },
+              {
+                title: '중급 447기 7회차(14:00-17:00)',
+                start: '2022-11-07T14:00:00',
+                end: '2022-11-07T17:00:00',
+                color: '#b2c8e5',
+                display: 'block'
+              },
+              {
+                title: '중급 447기 8회차(14:00-17:00)',
+                start: '2022-11-14T14:00:00',
+                end: '2022-11-14T17:00:00',
+                color: '#b2c8e5',
+                display: 'block'
+              },
+              // 중급 449기 평일저녁
+              {
+                title: '중급 449기 1회차(19:00-22:00)',
+                start: '2022-08-25T19:00:00',
+                end: '2022-08-25T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 449기 2회차(19:00-22:00)',
+                start: '2022-09-01T19:00:00',
+                end: '2022-09-01T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 449기 3회차(19:00-22:00)',
+                start: '2022-09-15T19:00:00',
+                end: '2022-09-15T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 449기 4회차(19:00-22:00)',
+                start: '2022-09-22T19:00:00',
+                end: '2022-09-22T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 449기 5회차(19:00-22:00)',
+                start: '2022-09-29T19:00:00',
+                end: '2022-09-29T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 449기 6회차(19:00-22:00)',
+                start: '2022-10-06T19:00:00',
+                end: '2022-10-06T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 449기 7회차(19:00-22:00)',
+                start: '2022-10-13T19:00:00',
+                end: '2022-10-13T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 449기 8회차(19:00-22:00)',
+                start: '2022-10-20T19:00:00',
+                end: '2022-10-20T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              // 중급 450기 주말집중
+              {
+                title: '중급 450기 1-2회차(10:30-17:00)',
+                start: '2022-10-09T10:30:00',
+                end: '2022-10-09T17:30:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 450기 3-4회차(10:00-17:00)',
+                start: '2022-10-16T10:30:00',
+                end: '2022-10-16T17:30:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 450기 5-6회차(10:00-17:00)',
+                start: '2022-10-23T10:30:00',
+                end: '2022-10-23T17:30:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              {
+                title: '중급 450기 7-8회차(10:00-17:00)',
+                start: '2022-11-06T10:30:00',
+                end: '2022-11-06T17:30:00',
+                color: '#3c75bc',
+                display: 'block'
+              },
+              // 중급 451기 평일저녁
+              {
+                title: '중급 451기 1회차(19:00-22:00)',
+                start: '2022-10-17T19:00:00',
+                end: '2022-10-17T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 451기 2회차(19:00-22:00)',
+                start: '2022-10-24T19:00:00',
+                end: '2022-10-24T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 451기 3회차(19:00-22:00)',
+                start: '2022-10-31T19:00:00',
+                end: '2022-10-31T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 451기 4회차(19:00-22:00)',
+                start: '2022-11-07T19:00:00',
+                end: '2022-11-07T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 451기 5회차(19:00-22:00)',
+                start: '2022-11-14T19:00:00',
+                end: '2022-11-14T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 451기 6회차(19:00-22:00)',
+                start: '2022-11-21T19:00:00',
+                end: '2022-11-21T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 451기 7회차(19:00-22:00)',
+                start: '2022-11-28T19:00:00',
+                end: '2022-11-28T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              {
+                title: '중급 451기 8회차(19:00-22:00)',
+                start: '2022-12-05T19:00:00',
+                end: '2022-12-05T22:00:00',
+                color: '#779ed1',
+                display: 'block'
+              },
+              // 중급 453기 WEB
+              {
+                title: '중급 453기 웹 1회차(19:30-22:00) *이론',
+                start: '2022-10-25T19:30:00',
+                end: '2022-10-25T22:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '중급 453기 웹 2회차(19:30-22:00) *이론',
+                start: '2022-11-01T19:30:00',
+                end: '2022-11-01T22:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '중급 453기 웹 3회차(19:30-22:00) *이론',
+                start: '2022-11-08T19:30:00',
+                end: '2022-11-08T22:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '중급 453기 웹 4회차(19:30-22:00) *이론',
+                start: '2022-11-15T19:30:00',
+                end: '2022-11-15T22:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '중급 453기 웹 5회차(19:30-22:00) *이론',
+                start: '2022-11-22T19:30:00',
+                end: '2022-11-22T22:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '중급 453기 웹 6회차(19:30-22:00) *이론',
+                start: '2022-11-29T19:30:00',
+                end: '2022-11-29T22:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '중급 453기 웹 7회차(14:00-17:00) *시음',
+                start: '2022-12-04T14:00:00',
+                end: '2022-12-04T17:00:00',
+                color: '#b2c8e5',
+                textColor: '#000',
+                display: 'block'
+              },
+              // 중급 454기 평일저녁
+              {
+                title: '중급 454기 1회차(19:00-22:00)',
+                start: '2022-11-02T19:00:00',
+                end: '2022-11-02T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 454기 2회차(19:00-22:00)',
+                start: '2022-11-09T19:00:00',
+                end: '2022-11-09T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 454기 3회차(19:00-22:00)',
+                start: '2022-11-16T19:00:00',
+                end: '2022-11-16T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 454기 4회차(19:00-22:00)',
+                start: '2022-11-23T19:00:00',
+                end: '2022-11-23T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 454기 5회차(19:00-22:00)',
+                start: '2022-11-30T19:00:00',
+                end: '2022-11-30T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 454기 6회차(19:00-22:00)',
+                start: '2022-12-07T19:00:00',
+                end: '2022-12-07T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 454기 7회차(19:00-22:00)',
+                start: '2022-12-14T19:00:00',
+                end: '2022-12-14T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+              {
+                title: '중급 454기 8회차(19:00-22:00)',
+                start: '2022-12-21T19:00:00',
+                end: '2022-12-21T22:00:00',
+                color: '#004ba8',
+                display: 'block'
+              },
+                                                                
+              // 고급일정 : color - #007318 3c944e 77b483 b2d5b9
+
+              // 고급 433기 주말집중
+              {
+                title: '고급 433기 11-12회차(10:30-17:30)',
+                start: '2022-08-13T10:30:00',
+                end: '2022-08-13T17:30:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 433기 13-14회차(10:30-17:30)',
+                start: '2022-08-20T10:30:00',
+                end: '2022-08-20T13:30:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 433기 15회차(10:30-13:30)',
+                start: '2022-08-27T19:00:00',
+                end: '2022-08-27T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              
+              // 고급 435기 평일오후
+              {
+                title: '고급 435기 7회차(14:00-17:00)',
+                start: '2022-08-01T14:00:00',
+                end: '2022-08-01T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 435기 8회차(14:00-17:00)',
+                start: '2022-08-03T14:00:00',
+                end: '2022-08-03T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 435기 9회차(14:00-17:00)',
+                start: '2022-08-08T14:00:00',
+                end: '2022-08-08T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 435기 10회차(14:00-17:00)',
+                start: '2022-08-10T14:00:00',
+                end: '2022-08-10T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 435기 11회차(14:00-17:00)',
+                start: '2022-08-17T14:00:00',
+                end: '2022-08-17T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 435기 12회차(14:00-17:00)',
+                start: '2022-08-22T14:00:00',
+                end: '2022-08-22T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 435기 13회차(14:00-17:00)',
+                start: '2022-08-24T14:00:00',
+                end: '2022-08-24T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 435기 14회차(14:00-17:00)',
+                start: '2022-08-29T14:00:00',
+                end: '2022-08-29T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 435기 15회차(14:00-17:00)',
+                start: '2022-08-31T14:00:00',
+                end: '2022-08-31T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              
+              // 고급 438기 평일저녁
+              {
+                title: '고급 438기 2회차(19:00-22:00)',
+                start: '2022-08-02T19:00:00',
+                end: '2022-08-02T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 438기 3회차(19:00-22:00)',
+                start: '2022-08-09T19:00:00',
+                end: '2022-08-09T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 438기 4회차(19:00-22:00)',
+                start: '2022-08-16T19:00:00',
+                end: '2022-08-16T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 438기 5회차(19:00-22:00)',
+                start: '2022-08-23T19:00:00',
+                end: '2022-08-23T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 438기 6회차(19:00-22:00)',
+                start: '2022-08-30T19:00:00',
+                end: '2022-08-30T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 438기 7회차(19:00-22:00)',
+                start: '2022-09-06T19:00:00',
+                end: '2022-09-06T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 438기 8회차(19:00-22:00)',
+                start: '2022-09-13T19:00:00',
+                end: '2022-09-13T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 438기 9회차(19:00-22:00)',
+                start: '2022-09-20T19:00:00',
+                end: '2022-09-20T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 438기 10회차(19:00-22:00)',
+                start: '2022-09-27T19:00:00',
+                end: '2022-09-27T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 438기 11회차(19:00-22:00)',
+                start: '2022-10-04T19:00:00',
+                end: '2022-10-04T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 438기 12회차(19:00-22:00)',
+                start: '2022-10-11T19:00:00',
+                end: '2022-10-11T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 438기 13회차(19:00-22:00)',
+                start: '2022-10-18T19:00:00',
+                end: '2022-10-18T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 438기 14회차(19:00-22:00)',
+                start: '2022-10-25T19:00:00',
+                end: '2022-10-25T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 438기 15회차(19:00-22:00)',
+                start: '2022-11-01T19:00:00',
+                end: '2022-11-01T22:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+
+              // 고급 443기 WEB
+              {
+                title: '고급 443기 웹 1회차(19:30-22:00) *이론',
+                start: '2022-09-22T19:30:00',
+                end: '2022-09-22T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 443기 웹 2회차(19:30-22:00) *이론',
+                start: '2022-09-29T19:30:00',
+                end: '2022-09-29T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 443기 웹 3회차(19:30-22:00) *이론',
+                start: '2022-10-06T19:30:00',
+                end: '2022-10-06T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 443기 웹 4회차(19:30-22:00) *이론',
+                start: '2022-10-13T19:30:00',
+                end: '2022-10-13T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 443기 웹 5회차(19:30-22:00) *이론',
+                start: '2022-10-20T19:30:00',
+                end: '2022-10-20T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 443기 웹 6회차(19:30-22:00) *이론',
+                start: '2022-10-27T19:30:00',
+                end: '2022-10-27T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 443기 웹 7회차(19:30-22:00) *이론',
+                start: '2022-11-03T19:30:00',
+                end: '2022-11-03T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 443기 웹 8회차(19:30-22:00) *이론',
+                start: '2022-11-10T19:30:00',
+                end: '2022-11-10T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 443기 웹 9회차(19:30-22:00) *이론',
+                start: '2022-11-17T19:30:00',
+                end: '2022-11-17T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 443기 웹 10회차(19:30-22:00) *이론',
+                start: '2022-11-24T19:30:00',
+                end: '2022-11-24T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 443기 웹 11-12회차(11:00-17:00) *시음',
+                start: '2022-10-09T14:00:00',
+                end: '2022-10-09T17:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 443기 웹 13-14회차(11:00-17:00) *시음',
+                start: '2022-11-06T14:00:00',
+                end: '2022-11-06T17:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 443기 웹 15-16회차(11:00-17:00) *시음',
+                start: '2022-12-04T14:00:00',
+                end: '2022-12-04T17:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              
+              // 고급 445기 평일저녁
+              {
+                title: '고급 445기 1회차(19:00-22:00)',
+                start: '2022-08-29T19:00:00',
+                end: '2022-08-29T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 2회차(19:00-22:00)',
+                start: '2022-09-05T19:00:00',
+                end: '2022-09-05T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 3회차(19:00-22:00)',
+                start: '2022-09-19T19:00:00',
+                end: '2022-09-19T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 4회차(19:00-22:00)',
+                start: '2022-09-26T19:00:00',
+                end: '2022-09-26T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 5회차(19:00-22:00)',
+                start: '2022-10-10T19:00:00',
+                end: '2022-10-10T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 6회차(19:00-22:00)',
+                start: '2022-10-17T19:00:00',
+                end: '2022-10-17T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 7회차(19:00-22:00)',
+                start: '2022-10-24T19:00:00',
+                end: '2022-10-24T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 8회차(19:00-22:00)',
+                start: '2022-10-31T19:00:00',
+                end: '2022-10-31T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 9회차(19:00-22:00)',
+                start: '2022-11-07T19:00:00',
+                end: '2022-11-07T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 10회차(19:00-22:00)',
+                start: '2022-11-14T19:00:00',
+                end: '2022-11-14T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 11회차(19:00-22:00)',
+                start: '2022-11-21T19:00:00',
+                end: '2022-11-21T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 12회차(19:00-22:00)',
+                start: '2022-11-28T19:00:00',
+                end: '2022-11-28T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 13회차(19:00-22:00)',
+                start: '2022-12-05T19:00:00',
+                end: '2022-12-05T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 14회차(19:00-22:00)',
+                start: '2022-12-12T19:00:00',
+                end: '2022-12-12T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              {
+                title: '고급 445기 15회차(19:00-22:00)',
+                start: '2022-12-19T19:00:00',
+                end: '2022-12-19T22:00:00',
+                color: '#3c944e',
+                display: 'block'
+              },
+              // 고급 449기 평일저녁
+              {
+                title: '고급 449기 1회차(19:00-22:00)',
+                start: '2022-09-28T19:00:00',
+                end: '2022-09-28T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 2회차(19:00-22:00)',
+                start: '2022-10-05T19:00:00',
+                end: '2022-10-05T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 3회차(19:00-22:00)',
+                start: '2022-10-12T19:00:00',
+                end: '2022-10-12T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 4회차(19:00-22:00)',
+                start: '2022-10-19T19:00:00',
+                end: '2022-10-19T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 5회차(19:00-22:00)',
+                start: '2022-10-26T19:00:00',
+                end: '2022-10-26T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 6회차(19:00-22:00)',
+                start: '2022-11-02T19:00:00',
+                end: '2022-11-02T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 7회차(19:00-22:00)',
+                start: '2022-11-09T19:00:00',
+                end: '2022-11-09T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 8회차(19:00-22:00)',
+                start: '2022-11-16T19:00:00',
+                end: '2022-11-16T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 9회차(19:00-22:00)',
+                start: '2022-11-23T19:00:00',
+                end: '2022-11-23T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 10회차(19:00-22:00)',
+                start: '2022-11-30T19:00:00',
+                end: '2022-11-30T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 11회차(19:00-22:00)',
+                start: '2022-12-07T19:00:00',
+                end: '2022-12-07T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 12회차(19:00-22:00)',
+                start: '2022-12-14T19:00:00',
+                end: '2022-12-14T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 13회차(19:00-22:00)',
+                start: '2022-12-21T19:00:00',
+                end: '2022-12-21T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 14회차(19:00-22:00)',
+                start: '2022-12-28T19:00:00',
+                end: '2022-12-28T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              {
+                title: '고급 449기 15회차(19:00-22:00)',
+                start: '2023-01-04T19:00:00',
+                end: '2023-01-04T22:00:00',
+                color: '#77b483',
+                display: 'block'
+              },
+              // 고급 452기 평일오후
+              {
+                title: '고급 452기 1회차(14:00-17:00)',
+                start: '2022-10-18T14:00:00',
+                end: '2022-10-18T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 2회차(14:00-17:00)',
+                start: '2022-10-25T14:00:00',
+                end: '2022-10-25T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 3회차(14:00-17:00)',
+                start: '2022-11-01T14:00:00',
+                end: '2022-11-01T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 4회차(14:00-17:00)',
+                start: '2022-11-08T14:00:00',
+                end: '2022-11-08T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 5회차(14:00-17:00)',
+                start: '2022-11-15T14:00:00',
+                end: '2022-11-15T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 6회차(14:00-17:00)',
+                start: '2022-11-22T14:00:00',
+                end: '2022-11-22T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 7회차(14:00-17:00)',
+                start: '2022-11-29T14:00:00',
+                end: '2022-11-29T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 8회차(14:00-17:00)',
+                start: '2022-12-06T14:00:00',
+                end: '2022-12-06T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 9회차(14:00-17:00)',
+                start: '2022-12-13T14:00:00',
+                end: '2022-12-13T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 10회차(14:00-17:00)',
+                start: '2022-12-20T14:00:00',
+                end: '2022-12-20T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 11회차(14:00-17:00)',
+                start: '2022-12-27T14:00:00',
+                end: '2022-12-27T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 12회차(14:00-17:00)',
+                start: '2023-01-03T14:00:00',
+                end: '2023-01-03T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 13회차(14:00-17:00)',
+                start: '2023-01-10T14:00:00',
+                end: '2023-01-10T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 14회차(14:00-17:00)',
+                start: '2023-01-17T14:00:00',
+                end: '2023-01-17T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              {
+                title: '고급 452기 15회차(14:00-17:00)',
+                start: '2023-01-31T14:00:00',
+                end: '2023-01-31T17:00:00',
+                color: '#b2d5b9',
+                textColor: '#000',
+                display: 'block'
+              },
+              // 고급 455기 평일저녁
+              {
+                title: '고급 455기 1회차(19:00-22:00)',
+                start: '2022-11-03T19:00:00',
+                end: '2022-11-03T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 2회차(19:00-22:00)',
+                start: '2022-11-10T19:00:00',
+                end: '2022-11-10T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 3회차(19:00-22:00)',
+                start: '2022-11-17T19:00:00',
+                end: '2022-11-17T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 4회차(19:00-22:00)',
+                start: '2022-11-24T19:00:00',
+                end: '2022-11-24T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 5회차(19:00-22:00)',
+                start: '2022-12-01T19:00:00',
+                end: '2022-12-01T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 6회차(19:00-22:00)',
+                start: '2022-12-08T19:00:00',
+                end: '2022-12-08T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 7회차(19:00-22:00)',
+                start: '2022-12-15T19:00:00',
+                end: '2022-12-15T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 8회차(19:00-22:00)',
+                start: '2022-12-22T19:00:00',
+                end: '2022-12-22T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 9회차(19:00-22:00)',
+                start: '2022-12-29T19:00:00',
+                end: '2022-12-29T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 10회차(19:00-22:00)',
+                start: '2023-01-05T19:00:00',
+                end: '2023-01-05T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 11회차(19:00-22:00)',
+                start: '2023-01-12T19:00:00',
+                end: '2023-01-12T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 12회차(19:00-22:00)',
+                start: '2023-01-19T19:00:00',
+                end: '2023-01-19T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 13회차(19:00-22:00)',
+                start: '2023-01-26T19:00:00',
+                end: '2023-01-26T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 14회차(19:00-22:00)',
+                start: '2023-02-02T19:00:00',
+                end: '2023-02-02T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+              {
+                title: '고급 455기 15회차(19:00-22:00)',
+                start: '2023-02-09T19:00:00',
+                end: '2023-02-09T22:00:00',
+                color: '#007318',
+                display: 'block'
+              },
+
+
+          ]
+        });
+        calendar.render();
+      });
+  </script>
+    <style>
+        html,body {
+            overflow: hidden; /* don't do scrollbars */
+            font-family: 'Pretendard';
+        }
+        #calendar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .fc-header-toolbar {
+        /*
+        the calendar will be butting up against the edges,
+        but let's scoot in the header's buttons
+        */
+        padding-top: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div id="calendar-container">
+        <div id="calendar"></div>
+    </div>
+</body>
+</html>
